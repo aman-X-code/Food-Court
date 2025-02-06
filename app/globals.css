@@ -2,26 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer base {
+ :root {
+   --background: 0 0% 90%; /* Off-white background */
+   --foreground: 222.2 84% 4.9%; /* Dark text */
+
+   --card: 0 0% 95%; /* Slightly lighter for cards */
+   --card-foreground: 222.2 84% 4.9%;
+
+   --popover: 0 0% 95%; /* Slightly lighter for popovers */
+   --popover-foreground: 222.2 84% 4.9%;
+
+   --primary: 222.2 47.4% 11.2%; /* Dark blue for primary buttons */
+   --primary-foreground: 210 40% 98%;
+
+   --secondary: 210 40% 96.1%;
+   --secondary-foreground: 222.2 47.4% 11.2%;
+
+   --muted: 210 40% 96.1%;
+   --muted-foreground: 215.4 16.3% 46.9%;
+
+   --accent: 210 40% 96.1%;
+   --accent-foreground: 222.2 47.4% 11.2%;
+
+   --destructive: 0 84.2% 60.2%;
+   --destructive-foreground: 210 40% 98%;
+
+   --border: 0 0% 85%; /* Slightly darker for light mode */
+   --input: 0 0% 100%; /* White for input background */
+   --ring: 222.2 84% 4.9%;
+
+   --radius: 0.5rem;
+ }
+
+ .dark {
+   --background: 222.2 3.3% 5.5%; /* #09090B */
+   --foreground: 0 0% 95%; /* Light text */
+
+   --card: 0 0% 15%; /* Darker card background */
+   --card-foreground: 0 0% 95%;
+
+   --popover: 0 0% 15%;
+   --popover-foreground: 0 0% 95%;
+
+   --primary: 0 0% 95%; /* Light text */
+   --primary-foreground: 0 0% 25%; /* Darker button color */
+
+   --secondary: 0 0% 28%; /* Darker secondary */
+   --secondary-foreground: 0 0% 95%;
+
+   --muted: 0 0% 28%;
+   --muted-foreground: 215 20.2% 65.1%;
+
+   --accent: 0 0% 28%;
+   --accent-foreground: 0 0% 95%;
+
+   --destructive: 0 62.8% 30.6%;
+   --destructive-foreground: 0 0% 95%;
+
+   --border: 0 0% 25%; /* Darker border for dark mode */
+   --input: 0 0% 100%; /* White input background in dark mode */
+   --ring: 0 0% 40%;
+ }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@layer base {
+ * {
+   @apply border-border;
+ }
+ body {
+   @apply bg-background text-foreground;
+ }
+ input {
+   @apply bg-input text-foreground border border-border; /* White background for input in both themes */
+ }
+ .card {
+   @apply bg-card text-card-foreground border-none; /* Removed unwanted border */
+ }
 }
