@@ -1,6 +1,6 @@
 # 🍽️ College Food Court
 
-https://college-food-court.vercel.app/
+## https://college-food-court.vercel.app/
 
 Welcome to the College Food Court project! This is a Next.js application designed to provide a seamless experience for students to explore food options available on campus.
 
